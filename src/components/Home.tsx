@@ -1,6 +1,7 @@
  import axios from "axios"
 import { CountryType } from "../types"
 import { useEffect, useState } from "react"
+import Country from "./Country"
 
  const Home = () => {
    const [countries, setCountries] = useState<CountryType[]>([])
@@ -8,16 +9,21 @@ import { useEffect, useState } from "react"
         try {
             const {data} =await axios.get<CountryType[]>('https://restcountries.com/v3.1/all')
             setCountries(data)
-        } catch (error) {
-            console.log(error)
+        } catch {
+            console.log('error')
         }        
     }
- console.log(countries)
+
     useEffect(()=>{
         getCountries()
     }, []);
+     console.log(countries)
   return (
-    <div>Home</div>
+    <div>
+    {countries.map((country,index) => {
+      return <Country key={index} country={country} />
+    })}
+    </div>
   )
 }
 export default Home
