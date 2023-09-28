@@ -2,16 +2,22 @@
 import { CountryType } from "../types"
 import { useEffect, useState } from "react"
 import Country from "./Country"
+import Loading from "./Loading"
+
 
  const Home = () => {
    const [countries, setCountries] = useState<CountryType[]>([])
+   const [loading,setLoading] = useState<boolean>(false)
     const getCountries = async () =>{
+      setLoading(true)
         try {
             const {data} =await axios.get<CountryType[]>('https://restcountries.com/v3.1/all')
             setCountries(data)
         } catch {
             console.log('error')
-        }        
+        } finally{
+           setLoading(false)
+        }       
     }
 
     useEffect(()=>{
@@ -20,9 +26,12 @@ import Country from "./Country"
      console.log(countries)
   return (
     <div>
-    {countries.map((country,index) => {
-      return <Country key={index} country={country} />
-    })}
+      <Loading loading={loading}>
+            {countries.map((country,index) => {
+            return <Country key={index} country={country} />
+          })}
+      </Loading>
+    
     </div>
   )
 }

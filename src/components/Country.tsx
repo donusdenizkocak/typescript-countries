@@ -9,7 +9,7 @@ interface ICountryProps{
     const {country} = props
   return (
     <div>
-     <p>{country.name} - {country.capital}</p>
+     <p>{country.name.common} - {country.capital}</p>
     </div>
   )
 }
