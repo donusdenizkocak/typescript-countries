@@ -1,7 +1,8 @@
 
-import  { FunctionComponent } from 'react'
+import  { FunctionComponent, ReactNode } from 'react'
 interface ILoadingProps{
     loading:boolean;
+    children:ReactNode
 }
 
 const Loading:FunctionComponent<ILoadingProps> = (props) => {
@@ -10,11 +11,8 @@ const Loading:FunctionComponent<ILoadingProps> = (props) => {
     if(loading){
         return <>Loading...</>;
     }
-  return 
-    <>
-     {props.children}
-    </>
+  return   <> {props.children} </>
   
 }
 
-export default Loading
+export default Loading;

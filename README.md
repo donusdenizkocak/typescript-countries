@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+This means you can get started with:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Creates an app called my-app
+npx create-react-app my-app --typescript
 
-## Available Scripts
+cd my-app
 
-In the project directory, you can run:
+# Adds the type definitions
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 
-### `npm start`
+echo "Good to go :tada:"
+This repo offers some exmples on how to take that project into production and handle testing and state. However, you can also use the official documentation in the Create React App website for that.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+Of note:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+tsconfig.json contains TypeScript-specific options for our project.
+We also have a tsconfig.prod.json and a tsconfig.test.json in case we want to make any tweaks to our production builds, or our test builds.
+tslint.json stores the settings that our linter, TSLint, will use.
+package.json contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
+public contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from index.html.
+src contains our TypeScript and CSS code. index.tsx is the entry-point for our file, and is mandatory.
 
-### `npm run build`
+Running the project is as simple as running
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run start
+This runs the start script specified in our package.json, and will spawn off a server which reloads the page as we save our files. Typically the server runs at http://localhost:3000, but should be automatically opened for you.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This tightens the iteration loop by allowing us to quickly preview changes.
