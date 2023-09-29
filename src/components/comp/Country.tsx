@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { CountryType } from "../types"
+import { CountryType } from "../../types"
 
 interface ICountryProps{
     country:CountryType

@@ -1,8 +1,10 @@
  import axios from "axios"
 import { CountryType } from "../types"
 import { useEffect, useState } from "react"
-import Country from "./Country"
-import Loading from "./Loading"
+import Country from "./comp/Country"
+import Loading from "./comp/Loading"
+
+
 
 
  const Home = () => {
@@ -27,11 +29,10 @@ import Loading from "./Loading"
   return (
     <div>
       <Loading loading={loading}>
-            {countries.map((country,index) => {
+      {countries.map((country,index) => {
             return <Country key={index} country={country} />
           })}
       </Loading>
-    
     </div>
   )
 }
